@@ -1,23 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from "react-native";
+import React from 'react';
+import Routing from '@src/Routing';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import ThemeProvider from '@src/providers/ThemeProvider';
+import { Provider as ReduxProvider } from 'react-redux';
+import store from '@src/store'
 
-export default function App() {
-  const screenWidth = window.screen.width;
-
+export default function App(): JSX.Element {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!AAA</Text>
-      {screenWidth}
-      <StatusBar style="auto" />
-    </View>
+    <ReduxProvider store={store}>
+      <ThemeProvider>
+        <SafeAreaProvider>
+          <Routing />
+        </SafeAreaProvider>
+      </ThemeProvider>
+    </ReduxProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

@@ -9,6 +9,11 @@ npm-debug.*
 *.mobileprovision
 *.orig.*
 web-build/
+test.txt
 
 # macOS
 .DS_Store
+
+# IDE
+.idea
+.vscode
